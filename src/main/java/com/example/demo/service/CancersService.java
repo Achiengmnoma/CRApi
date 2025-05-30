@@ -1,5 +1,8 @@
-package com.example.demo.disease;
+package com.example.demo.service;
 
+import com.example.demo.io.Cancers;
+import com.example.demo.disease.Cancerslist;
+import com.example.demo.repository.CancersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
