@@ -1,4 +1,4 @@
-package com.example.demo.disease;
+package com.example.demo.io;
 
 import jakarta.persistence.*;
 

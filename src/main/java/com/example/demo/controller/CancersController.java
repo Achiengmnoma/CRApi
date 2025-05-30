@@ -1,5 +1,7 @@
-package com.example.demo.disease;
+package com.example.demo.controller;
 
+import com.example.demo.disease.Cancerslist;
+import com.example.demo.service.CancersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
