@@ -2,6 +2,16 @@ package com.example.demo.io;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public record Cancers(String name,String causes,String symptoms,String treatment,Long id){
+    public static List<Cancers> cancerDisease = new ArrayList<>(Arrays.asList());
+
+}
+
+/*
 @Entity
 @Table
 public class Cancers {
@@ -93,4 +103,4 @@ public class Cancers {
                 ", treatment='" + treatment + '\'' +
                 '}';
     }
-}
+}*/
