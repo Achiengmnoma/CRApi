@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.io.Cancers;
+import com.example.demo.dto.Cancers;
 
 public interface CancersServ {
     Cancers getName(String name);

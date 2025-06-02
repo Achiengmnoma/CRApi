@@ -2,7 +2,7 @@ package com.example.demo.disease;
 
 
 
-import com.example.demo.io.Cancers;
+import com.example.demo.dto.Cancers;
 
 import java.util.List;
 import java.util.Map;

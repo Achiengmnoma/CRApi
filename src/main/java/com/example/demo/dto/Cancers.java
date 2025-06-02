@@ -1,6 +1,4 @@
-package com.example.demo.io;
-
-import jakarta.persistence.*;
+package com.example.demo.dto;
 
 import java.util.ArrayList;
 import java.util.Arrays;
