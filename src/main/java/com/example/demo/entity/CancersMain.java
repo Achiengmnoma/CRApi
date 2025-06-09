@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package com.example.demo.entity;
 
 import jakarta.persistence.*;
 
@@ -13,7 +13,6 @@ public class CancersMain {
     String treatment;
     Long id;
 
-    public CancersMain(){}
     public CancersMain(String name, String causes, String symptoms, String treatment, Long id) {
         this.name = name;
         this.causes = causes;
