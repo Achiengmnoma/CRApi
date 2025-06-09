@@ -1,9 +1,10 @@
 package com.example.demo.CancerMapper;
 
 import com.example.demo.dto.Cancers;
-import com.example.demo.dto.CancersMain;
+import com.example.demo.entity.CancersMain;
 
 public class CancerMapper {
+    //takes CancerMain which is entity and converts to dto
     public static Cancers maptoCancers(CancersMain cancer){
         return new Cancers(
                 cancer.getName(),
@@ -14,8 +15,8 @@ public class CancerMapper {
 
         );
     }
-
-    public static CancersMain cancer(Cancers cancers){
+    //takes Cancers which is record and dto and converts back to entity
+    public static CancersMain maptoEntity(Cancers cancers){
         return new CancersMain(
                 cancers.name(),
                 cancers.causes(),
