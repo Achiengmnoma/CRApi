@@ -1,53 +1,55 @@
 package com.example.demo.controller;
 
 import com.example.demo.CancerMapper.CancerMapper;
+import com.example.demo.ResourceNotFoundException;
 import com.example.demo.dto.Cancers;
 import com.example.demo.entity.CancersMain;
 import com.example.demo.repository.CancersRepository;
+import com.example.demo.service.CancerServImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-//@RequestMapping(path = "api/v1/Cancers")
+@RequestMapping(path = "api/v1/cancers")
 public class CancersController {
 
-    @Autowired
-    private CancersRepository cancersRepository;
+    private CancerServImpl services;
+
+    @PostMapping
+    public ResponseEntity<Cancers> addDiseases(@RequestBody Cancers cancers){
+        Cancers saved = services.save(cancers);
+        return new ResponseEntity<>(saved, HttpStatus.CREATED);
+    }
+
+//    @Autowired
+//    private CancersRepository cancersRepository;
 
     @GetMapping("/{id}")
     public ResponseEntity<Cancers> getId(@PathVariable Long id) {
-        CancersMain cancerEntity = cancersRepository.findById(id).orElseThrow();
-        Cancers dto = CancerMapper.maptoCancers(cancerEntity);
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(services.getId(id));
     }
 
     @GetMapping("/name/{name}")
     public ResponseEntity<Cancers> getName(@PathVariable String name){
-        CancersMain cancerEntity = cancersRepository.findByName(name).orElseThrow();
-        Cancers dto = CancerMapper.maptoCancers(cancerEntity);
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(services.getName(name));
     }
 
     @GetMapping("/causes/{causes}")
     public ResponseEntity<Cancers> getCauses(@PathVariable String causes){
-        CancersMain cancerEntity = cancersRepository.findByCauses(causes).orElseThrow();
-        Cancers dto = CancerMapper.maptoCancers(cancerEntity);
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(services.getCauses(causes));
     }
 
     @GetMapping("/symptoms/{symptoms}")
     public ResponseEntity<Cancers> getSymptoms(@PathVariable String symptoms){
-        CancersMain cancerEntity = cancersRepository.findBySymptoms(symptoms).orElseThrow();
-        Cancers dto = CancerMapper.maptoCancers(cancerEntity);
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(services.getSymptoms(symptoms));
     }
 
     @GetMapping("/treatment/{treatment}")
     public ResponseEntity<Cancers> getTreatment(@PathVariable String treatment){
-        CancersMain cancerEntity = cancersRepository.findByTreatment(treatment).orElseThrow();
-        Cancers dto = CancerMapper.maptoCancers(cancerEntity);
-        return ResponseEntity.ok(dto);
+        return ResponseEntity.ok(services.getTreatment(treatment));
     }
 
 }
