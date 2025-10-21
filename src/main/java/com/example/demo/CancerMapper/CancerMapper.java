@@ -4,25 +4,25 @@ import com.example.demo.dto.Cancers;
 import com.example.demo.entity.CancersMain;
 
 public class CancerMapper {
-    //takes CancerMain which is entity and converts to dto
-    public static Cancers maptoCancers(CancersMain cancer){
+    //converts CancersMain which is an entity to DTO
+    public static Cancers toDto(CancersMain entity){
         return new Cancers(
-                cancer.getName(),
-                cancer.getCauses(),
-                cancer.getSymptoms(),
-                cancer.getTreatment(),
-                cancer.getId()
+                entity.getName(),
+                entity.getCauses(),
+                entity.getSymptoms(),
+                entity.getTreatment(),
+                entity.getId()
 
         );
     }
-    //takes Cancers which is record and dto and converts back to entity
-    public static CancersMain maptoEntity(Cancers cancers){
+    //converts Cancers which is a record DTO to entity
+    public static CancersMain toEntity(Cancers dto){
         return new CancersMain(
-                cancers.name(),
-                cancers.causes(),
-                cancers.symptoms(),
-                cancers.treatment(),
-                cancers.id()
+                dto.name(),
+                dto.causes(),
+                dto.symptoms(),
+                dto.treatment(),
+                dto.id()
         );
     }
 

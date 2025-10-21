@@ -3,10 +3,17 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cancers")
+@Table
 public class CancersMain {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @SequenceGenerator(
+            name = "cancer_sequence",
+            sequenceName = "cancer_sequence",
+            allocationSize =  1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.IDENTITY,
+            generator = "cancer_sequence")
     String name;
     String causes;
     String symptoms;
