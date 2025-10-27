@@ -14,11 +14,12 @@ public class CancersMain {
     @GeneratedValue(
             strategy = GenerationType.IDENTITY,
             generator = "cancer_sequence")
+    Long id;
     String name;
     String causes;
     String symptoms;
     String treatment;
-    Long id;
+
 
     public CancersMain(String name, String causes, String symptoms, String treatment, Long id) {
         this.name = name;

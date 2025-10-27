@@ -12,11 +12,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "api/v1/cancers")
 public class CancersController {
 
     private CancerServImpl services;
+
+    public CancersController(CancerServImpl services){
+        this.services = services;
+    }
 
     @PostMapping
     public ResponseEntity<Cancers> addDiseases(@RequestBody Cancers cancers){
@@ -24,8 +30,10 @@ public class CancersController {
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
-//    @Autowired
-//    private CancersRepository cancersRepository;
+    @GetMapping
+    public List<Cancers> getAll(){
+        return services.getAll();
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Cancers> getId(@PathVariable Long id) {
