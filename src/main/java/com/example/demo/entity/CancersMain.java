@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table
+@Table(name = "cancers_main")
 public class CancersMain {
     @Id
     @SequenceGenerator(
@@ -12,7 +12,7 @@ public class CancersMain {
             allocationSize =  1
     )
     @GeneratedValue(
-            strategy = GenerationType.IDENTITY,
+            strategy = GenerationType.SEQUENCE,
             generator = "cancer_sequence")
     Long id;
     String name;
