@@ -25,39 +25,46 @@ public class CancersController {
     }
 
     @PostMapping
-    public ResponseEntity<Cancers> addDiseases(@RequestBody Cancers cancers){
-        Cancers saved = services.save(cancers);
+    public ResponseEntity<CancersMain> addDiseases(@RequestBody CancersMain cancers){
+        CancersMain saved = services.save(cancers);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
+        //return ResponseEntity.ok(saved);
     }
 
     @GetMapping
-    public List<Cancers> getAll(){
-        return services.getAll();
+    public ResponseEntity<List<CancersMain>> getAll(){
+        List<CancersMain> cancers = services.getAll();
+        return ResponseEntity.ok(cancers);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cancers> getId(@PathVariable Long id) {
-        return ResponseEntity.ok(services.getId(id));
+    public ResponseEntity<CancersMain> getId(@PathVariable Long id) {
+        CancersMain cancer = services.getId(id);
+        return ResponseEntity.ok(cancer);
     }
 
     @GetMapping("/name/{name}")
-    public ResponseEntity<Cancers> getName(@PathVariable String name){
-        return ResponseEntity.ok(services.getName(name));
+    public ResponseEntity<CancersMain> getName(@PathVariable String name){
+        CancersMain cancer = services.getName(name);
+        return ResponseEntity.ok(cancer);
     }
 
     @GetMapping("/causes/{causes}")
-    public ResponseEntity<Cancers> getCauses(@PathVariable String causes){
-        return ResponseEntity.ok(services.getCauses(causes));
+    public ResponseEntity<CancersMain> getCauses(@PathVariable String causes){
+        CancersMain cancer = services.getCauses(causes);
+        return ResponseEntity.ok(cancer);
     }
 
     @GetMapping("/symptoms/{symptoms}")
-    public ResponseEntity<Cancers> getSymptoms(@PathVariable String symptoms){
-        return ResponseEntity.ok(services.getSymptoms(symptoms));
+    public ResponseEntity<CancersMain> getSymptoms(@PathVariable String symptoms){
+        CancersMain cancer = services.getSymptoms(symptoms);
+        return ResponseEntity.ok(cancer);
     }
 
     @GetMapping("/treatment/{treatment}")
-    public ResponseEntity<Cancers> getTreatment(@PathVariable String treatment){
-        return ResponseEntity.ok(services.getTreatment(treatment));
+    public ResponseEntity<CancersMain> getTreatment(@PathVariable String treatment){
+        CancersMain cancer = services.getTreatment(treatment);
+        return ResponseEntity.ok(cancer);
     }
 
 }

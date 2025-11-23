@@ -1,11 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.Cancers;
+import com.example.demo.entity.CancersMain;
+
+import java.util.List;
 
 public interface CancersServ {
-    Cancers getName(String name);
-    Cancers getCauses(String causes);
-    Cancers getSymptoms(String symptoms);
-    Cancers getTreatment(String treatment);
-    Cancers getId(Long id);
+    CancersMain getName(String name);
+    CancersMain getCauses(String causes);
+    CancersMain getSymptoms(String symptoms);
+    CancersMain getTreatment(String treatment);
+    CancersMain getId(Long id);
+    List<CancersMain> getAll();
 }
