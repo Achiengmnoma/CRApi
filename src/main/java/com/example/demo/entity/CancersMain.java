@@ -20,7 +20,10 @@ public class CancersMain {
     String symptoms;
     String treatment;
 
+    //for hibernate to create instances with
+    public CancersMain(){
 
+    }
     public CancersMain(String name, String causes, String symptoms, String treatment, Long id) {
         this.name = name;
         this.causes = causes;
