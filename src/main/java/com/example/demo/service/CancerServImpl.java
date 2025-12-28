@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import com.example.demo.CancerMapper.CancerMapper;
 import com.example.demo.ResourceNotFoundException;
 import com.example.demo.entity.CancersMain;
 import com.example.demo.repository.CancersRepository;
@@ -29,6 +28,15 @@ public class CancerServImpl implements CancersServ {
     public CancersMain save(CancersMain cancer){
         return repository.save(cancer);
     }
+
+    public void deleteCancer(String name){
+
+        if(!repository.existsByName(name)){
+            throw new RuntimeException("Cancer not found" + name);
+        }
+        repository.deleteByName(name);
+    }
+
 
     @Override
     public CancersMain getName(String name) {

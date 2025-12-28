@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +15,8 @@ public class CancersMain {
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "cancer_sequence")
+
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     Long id;
     String name;
     String causes;
