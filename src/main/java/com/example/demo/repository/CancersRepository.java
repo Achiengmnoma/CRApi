@@ -16,4 +16,6 @@ public interface CancersRepository extends JpaRepository<CancersMain,Long> {
    Optional <CancersMain> findBySymptoms(String symptoms);
 
     Optional<CancersMain> findByTreatment(String treatment);
+    boolean existsByName(String name);
+    void deleteByName(String name);
 }

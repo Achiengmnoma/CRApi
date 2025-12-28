@@ -31,6 +31,13 @@ public class CancersController {
         //return ResponseEntity.ok(saved);
     }
 
+    @DeleteMapping
+    public ResponseEntity<Void>deleteCancer(@RequestParam String name){
+        services.deleteCancer(name);
+        return ResponseEntity.noContent().build();
+    }
+
+
     @GetMapping
     public ResponseEntity<List<CancersMain>> getAll(){
         List<CancersMain> cancers = services.getAll();
@@ -66,5 +73,7 @@ public class CancersController {
         CancersMain cancer = services.getTreatment(treatment);
         return ResponseEntity.ok(cancer);
     }
+
+
 
 }
